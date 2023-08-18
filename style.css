@@ -31,6 +31,7 @@ header {
 
 .title {
     width: 300px;
+    text-align: center;
     height: auto;
     margin: 0 auto;
     background-color: var(--dark);
@@ -53,11 +54,74 @@ header {
     font-size: 15px;
     color: var(--light);
 }
+.maincontainer {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    max-width: 1500px;
+    margin: 10px auto;
+}
+.player {
+    width: 300px;
+    height: 300px;
+    margin: auto 100px;
+    display: flex;
+    flex-direction: column;
+}
+
+button.selector {
+    margin: 0 auto;
+    background-color: var(--light);
+    border-width: 5px;
+    border-color: black;
+    width: 250px;
+    height: 80px;
+    border-radius: 25px;
+    font-size: 50px;
+    transition-duration: 0.2s;
+}
+
+button.selector:hover {
+    border-width: 10px;
+}
+
+button.selector:active {
+    border-width: 10px;
+}
+
+.display {
+    font-size: 80px;
+    margin: 20px auto;
+}
 
 .container {
-    width: 600px;
-    height: 600px;
+    width: 480px;
+    height: 480px;
     margin: 50px auto;
     background-color: var(--dark);
     opacity: 0.5;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    border-collapse: collapse;
+
+}
+
+.row {
+    display: flex;
+}
+button.cell {
+    background-color: var(--dark);
+    outline: 2px solid black;
+    border-collapse: collapse;
+    width: 160px;
+    height: 160px;
+    align-items: center;
+    justify-content: center;
+    font-size: 24px;
+    text-align: center;
+    cursor: pointer;
+}  
+.cell:active {
+    outline: none;
 }

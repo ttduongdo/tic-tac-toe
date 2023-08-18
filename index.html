@@ -16,14 +16,43 @@
 
     <div class="levelSelector">
         <select name="level" id="level">
-            <option value="body">Easy</option>
-            <option value="facial">Medium</option>
-            <option value="hair">Hard</option>
+            <option value="easy">Easy</option>
+            <option value="medium">Medium</option>
+            <option value="hard">Hard</option>
         </select>
     </div>
 
     <main>
-        <div class="container"></div>
+        <div class="maincontainer">
+            <div class="player">
+                <button class="selector" value="X">Player X</button>
+                <div class="display">00</div>
+            </div>
+            
+            <div class="container">
+                <div class="row">
+                    <button class="cell" value="0"></button>
+                    <button class="cell" value="0"></button>
+                    <button class="cell" value="0"></button>
+                </div>
+                <div class="row">
+                    <button class="cell" value="0"></button>
+                    <button class="cell" value="0"></button>
+                    <button class="cell" value="0"></button>
+                </div>
+                <div class="row">
+                    <button class="cell" value="0"></button>
+                    <button class="cell" value="0"></button>
+                    <button class="cell" value="0"></button>
+                </div>
+            </div>
+
+            <div class="player">
+                <button class="selector" value="O">Player O</button>
+                <div class="display">00</div>
+            </div>
+        </div>
+        
     </main>
     <script src="script.js"></script>
 </body>
