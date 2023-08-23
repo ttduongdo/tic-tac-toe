@@ -26,7 +26,7 @@
         <div class="maincontainer">
             <div class="player">
                 <button class="selector" value="X">Player X</button>
-                <div class="display">00</div>
+                <div class="X score">0</div>
             </div>
             
             <div class="container">
@@ -49,10 +49,19 @@
 
             <div class="player">
                 <button class="selector" value="O">Player O</button>
-                <div class="display">00</div>
+                <div class="O score">0</div>
             </div>
         </div>
-        
+        <dialog class="dialog">
+            <div class="box">
+                <div class="message">SOMEONE WON!</div>
+                <div class="buttons">
+                    <button value="cancel">Cancel</button>
+                    <button value="again">Another round</button>
+                </div>
+            </div>
+            
+        </dialog>
     </main>
     <script src="script.js"></script>
 </body>

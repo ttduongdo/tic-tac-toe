@@ -1,20 +1,27 @@
+const dialog = document.querySelector('.dialog');
 
-const Player = (name, sign) => {
+const Player = (sign) => {
     const getSign = () => sign;
-    return {name, sign, getSign};
+    return {sign, getSign};
 }
 
-const ro = Player('Ro', 'X');
-console.log(ro.getSign());
-const bert = Player('Bert', 'O');
-console.log(bert.getSign());
+const playerOne = Player();
+
+const playerTwo = Player();
+
+
 
 
 const gameBoard = (() => {
     let inactiveCells = [];
     let cells = document.querySelectorAll(".cell");
     var flag = 1;
+    const message = dialog.querySelector(".message")
+    var xScore = 0;
+    var oScore = 0;
     
+    const x = document.querySelector(".X.score");
+    const o = document.querySelector(".O.score");
     const cellClickListener = (event) => {
         const cell = event.target;
             if (cell.value === "0") {
@@ -24,7 +31,7 @@ const gameBoard = (() => {
                     cell.innerHTML = 'X';
                     flag = 0;
                     console.log(flag);
-                } else if (flag === 0) {
+                } else {
                     cell.value = "2";
                     cell.innerHTML = 'O';
                     flag = 1;
@@ -49,10 +56,16 @@ const gameBoard = (() => {
                         (cells[a].value === "1" || cells[a].value === "2")
                     ) {
                         if (cells[a].value === "1") {
-                            console.log(`X Won!`);
+                            xScore += 1;
+                            message.innerHTML = `X Won!`;
+                            dialog.showModal();
                         } else {
-                            console.log(`O Won!`);
+                            oScore += 1;
+                            message.innerHTML = `O Won!`;
+                            dialog.showModal();
                         }
+                        x.innerHTML = `${xScore}`;
+                        o.innerHTML = `${oScore}`;
                         cells.forEach(cell => {
                             cell.removeEventListener("click", cellClickListener);
                             cell.disabled = true; 
@@ -62,14 +75,50 @@ const gameBoard = (() => {
                 }
     
                 if (inactiveCells.length === 9) {
-                    console.log("It's a draw!");
+                    xScore += 1;
+                    oScore += 1;
+                    x.innerHTML = `${xScore}`;
+                    o.innerHTML = `${oScore}`;
+                    message.innerHTML = "It's a draw!";
+                    dialog.showModal();
                 }
             }
         }
+    const resetGame = () => {
+        cells.forEach(cell => {
+            cell.value = "0";
+            cell.innerHTML = "";
+            cell.disabled = false;
+        });
+
+        inactiveCells = [];
+        flag = 1;
+        dialog.close();
+        
+        cells.forEach(cell => cell.addEventListener("click", cellClickListener));
+    };
+
     cells.forEach(cell => cell.addEventListener("click", cellClickListener));
+
+    const resetButton = dialog.querySelector('button[value="again"]');
+    resetButton.addEventListener("click", resetGame);
+
+    const cancelButton = dialog.querySelector('button[value="cancel"]');
+    cancelButton.addEventListener("click", () => {
+        dialog.close();
+    });
+
+    // return {
+    //     cells,
+    //     resetGame,
+    // };
 })();
-    
-    
+
+
+
+
+
+
 
 
 
